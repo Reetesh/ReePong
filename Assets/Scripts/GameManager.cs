@@ -16,7 +16,7 @@ public class GameManager : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		audio.PlayOneShot (startSound);
+		GetComponent<AudioSource>().PlayOneShot (startSound);
 		theBall = GameObject.FindGameObjectWithTag ("Ball").transform;
 	}
 
@@ -44,7 +44,7 @@ public class GameManager : MonoBehaviour {
 				GUI.Label (new Rect (Screen.width / 2 - 150, 100, 500, 500), "Player ONE wins!");
 				theBall.gameObject.SendMessage ("centerBall", null, SendMessageOptions.RequireReceiver);
 				if ( !gameWon ) {
-					audio.PlayOneShot(winSound);
+					GetComponent<AudioSource>().PlayOneShot(winSound);
 					gameWon = true;
 				}
 
@@ -53,7 +53,7 @@ public class GameManager : MonoBehaviour {
 			GUI.Label (new Rect (Screen.width / 2 - 150, 100, 500, 500), "Player TWO wins!");
 			theBall.gameObject.SendMessage ("centerBall", null, SendMessageOptions.RequireReceiver);
 			if ( !gameWon ) {
-				audio.PlayOneShot(winSound);
+				GetComponent<AudioSource>().PlayOneShot(winSound);
 				gameWon = true;
 			}
 		}
